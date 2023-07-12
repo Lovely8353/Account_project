@@ -6,8 +6,6 @@ import MyDrawer from './Src/navigation/drawerNav/MyDrawer'
 export default function App() {
   return (
     <View style={{flex:1,backgroundColor:'white'}}>
-      {/* <Text>App</Text> */}
-      {/* <DashboardScreen /> */}
       <MyDrawer />
     </View>
   )

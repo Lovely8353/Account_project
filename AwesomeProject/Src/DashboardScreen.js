@@ -17,14 +17,10 @@ import { Fontsize, Images, appcolor } from "./ColorConsts";
 import CustomButton from "./CommonComponents/CustomButton";
 import CommonInput from "./CommonComponents/CommonInput";
 import UnfilledButton from "./CommonComponents/UnfilledButton";
-import { get } from "react-native/Libraries/Utilities/PixelRatio";
-// import * as authServices from "../Src/Apis/Services/UserAuth";
 import axios from "axios";
-// import Network from "../../../components/Network";
 
 export default function DashboardScreen({ navigation }) {
   //we will set it to true for showing the modal
-  // GSTNo
   const [addCustomerModal, setaddCustomerModal] = useState(false);
   const [GSTNo, setGSTNo] = useState("");
   const [GSTNoError, setGSTNoError] = useState("");
@@ -50,57 +46,6 @@ export default function DashboardScreen({ navigation }) {
   const [focusField, setfocusField] = useState(0);
   const [ListData, setListData] = useState([]);
 
-  const data = [
-    {
-      name: "SUZLON ENERGY LIMITED UNIT I",
-      email: "veer.prakash+9977@ruptok.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 1,
-    },
-    {
-      name: "UJJIVAN SMALL FINANCE BANK LIMITED",
-      email: "veer.prakash+9977@ruptok.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 0,
-    },
-    {
-      name: "GEMINI SOLUTION PRIVATE LIMITED",
-      email: "veer1@gmail.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 1,
-    },
-    {
-      name: "Croma",
-      email: "sachin.srivastva+00384@ruptok.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 1,
-    },
-    {
-      name: "HONDA MOTOR INDIA",
-      email: "sachin.srivastva+00232@ruptok.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 1,
-    },
-    {
-      name: "AXIS BANK LIMITED",
-      email: "sachin.srivastva+090@ruptok.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 1,
-    },
-    {
-      name: "KOTAK MAHINDRA BANK LTD.",
-      email: "sachin.srivastva+00384@ruptok.com",
-      gstno: "hhhh4hh5hh5h5",
-      invoice: 0,
-      action: 1,
-    },
-  ];
   useEffect(() => {
     getData();
   }, []);
@@ -163,7 +108,6 @@ export default function DashboardScreen({ navigation }) {
   };
 
   const renderList = (item, index) => {
-    // console.log('item', item)
     return (
       <View
         style={{
@@ -172,7 +116,6 @@ export default function DashboardScreen({ navigation }) {
           borderBottomLeftRadius: wp("3"),
           flexDirection: "row",
           alignItems: "center",
-          // justifyContent:'space-between'
         }}
       >
         <View
@@ -243,12 +186,12 @@ export default function DashboardScreen({ navigation }) {
   };
 
   const SaveDetails = () => {
-    let body={
-      title:firstName+' '+lastName,
-      rating:GSTNo,
-      description:branchName+' '+branchAddress,
-      phoneNo:phoneNo
-    }
+    let body = {
+      title: firstName + " " + lastName,
+      rating: GSTNo,
+      description: branchName + " " + branchAddress,
+      phoneNo: phoneNo,
+    };
     if (CustomerModalValidation()) {
       setaddCustomerModal(false);
 
@@ -257,9 +200,9 @@ export default function DashboardScreen({ navigation }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title: body.title,
-          stock:body.rating,
-          price:body.phoneNo,
-          description:body.description
+          stock: body.rating,
+          price: body.phoneNo,
+          description: body.description,
           /* other product data */
         }),
       })
@@ -280,13 +223,7 @@ export default function DashboardScreen({ navigation }) {
           borderBottomWidth: wp("0.3"),
         }}
       >
-        {/* <Image
-                              source={Images.cap}
-                              style={{height:hp('6'),width:wp('7'),tintColor:appcolor.white}}
-                              /> */}
-
         <TouchableOpacity>
-          {/* <Text style={{ color: appcolor.white }}>cap</Text> */}
           <TouchableOpacity style={{ height: wp("6"), width: wp("6") }}>
             <Image
               source={Images.cap}
@@ -300,7 +237,6 @@ export default function DashboardScreen({ navigation }) {
         </TouchableOpacity>
 
         <TouchableOpacity>
-          {/* <Text style={{ color: appcolor.white }}>menu</Text> */}
           <TouchableOpacity
             onPress={() => navigation.openDrawer()}
             style={{ height: wp("6"), width: wp("6") }}
@@ -353,23 +289,33 @@ export default function DashboardScreen({ navigation }) {
                 justifyContent: "space-between",
               }}
             >
-              <Image
+             <TouchableOpacity
+             onPress={()=>{}}
+             >
+             <Image
                 source={Images.search}
                 style={{
                   height: wp("6"),
                   width: wp("6"),
                   tintColor: appcolor.gray,
+                  resizeMode:'center'
                 }}
               />
+             </TouchableOpacity>
 
-              <Image
+             <TouchableOpacity
+             onPress={()=>{}}
+             >
+             <Image
                 source={Images.notification}
                 style={{
-                  height: wp("6"),
-                  width: wp("6"),
+                  height: wp("5"),
+                  width: wp("5"),
+                  resizeMode:'center',
                   tintColor: appcolor.gray,
                 }}
               />
+             </TouchableOpacity>
             </View>
 
             <TouchableOpacity style={{ height: wp("6"), width: wp("6") }}>
@@ -400,25 +346,10 @@ export default function DashboardScreen({ navigation }) {
             />
           </View>
 
-          {/* below view is for customer name view list */}
-
-          {/* <Text
-              style={{
-                color: appcolor.titleblack,
-                fontSize: Fontsize.small,
-                fontWeight: "700",
-                paddingHorizontal: wp("4"),
-              }}
-            >
-              Customer Name
-            </Text> */}
-
           {/* below view is for flatlist */}
           <ScrollView horizontal={true} contentContainerStyle={{}}>
             <View style={{ paddingVertical: hp("3") }}>
               <FlatList
-                // ListData
-                // data
                 data={ListData}
                 renderItem={({ item, index }) => renderList(item, index)}
                 showsVerticalScrollIndicator={false}
@@ -464,12 +395,6 @@ export default function DashboardScreen({ navigation }) {
             alignItems: "center",
           }}
         >
-          {/* <ScrollView
-               contentContainerStyle={{
-                flex:1,
-                alignItems:'center',justifyContent:'center'
-               }}
-               > */}
           <View
             style={{
               alignItems: "center",
@@ -667,7 +592,6 @@ export default function DashboardScreen({ navigation }) {
               />
             </View>
           </View>
-          {/* </ScrollView> */}
         </View>
       </Modal>
     </View>
