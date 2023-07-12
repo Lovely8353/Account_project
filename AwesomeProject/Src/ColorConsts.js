@@ -35,11 +35,10 @@ export const Images = {
       menu: require('../Src/Images/menu.png'),
       cap: require('../Src/Images/cap.png'),
       search: require('../Src/Images/search.png'),
-      notification: require('../Src/Images/Loginicon.png'),
+      notification: require('../Src/Images/bell.png'),
       profile: require('../Src/Images/contact.png'),
       home: require('../Src/Images/home.png'),
       customer: require('../Src/Images/contact.png'),
-
       vendor: require('../Src/Images/cube.png'),
       goods: require('../Src/Images/bag.png'),
       setting: require('../Src/Images/settings.png'),
@@ -48,7 +47,4 @@ export const Images = {
       cross: require('../Src/Images/cross.png'),
       switchon: require('../Src/Images/SwitchOn.png'),
       switchoff: require('../Src/Images/SwitchOff.png'),
-
-
-
   }

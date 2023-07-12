@@ -3,7 +3,6 @@ import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import CustomDrawer from './CustomDrawer'
-import Home from '../../screens/Home';
 import DashboardScreen from '../../DashboardScreen';
 
 
@@ -24,7 +23,6 @@ export default function MyDrawer() {
       // Here we are setting our custom sidebar menu 
       drawerContent={(props) => <CustomDrawer {...props} />}
       >
-        {/* <Drawer.Screen name="Home" component={Home} /> */}
         <Drawer.Screen name="DashboardScreen" component={DashboardScreen} />
 
       </Drawer.Navigator>
@@ -33,12 +31,3 @@ export default function MyDrawer() {
 }
 
 
-
-
-// export default function MyDrawer() {
-//   return (
-//     <View>
-//       <Text>MyDroooawer</Text>
-//     </View>
-//   )
-// }
